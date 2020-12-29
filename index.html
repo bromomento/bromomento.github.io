@@ -1,17 +1,47 @@
 <!DOCTYPE html>
-
 <html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>my-first-website</title>
-  <LINK href="styles.css" rel="stylesheet" type="text/css">
-</head>
-
-<body>
-
-<iframe src="http://desktop.mundogaturro.com" OnLoad="changePageTitle()" seamless style="background-image:url('bg.gif'); background-size: cover;">
-<!-- Change this code here by copy and pasting your template on line 15 -->
-<p>Welcome to your first GitHub Pages website!</p>
-
-</body>
+	<head>
+		<title>WaterMelon Man´s Website</title>
+		<style>
+			html, body, iframe { 
+				margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; border: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">   
+		function makeid(length) {
+   var result           = '';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
+}
+			// API para abrir URLs de forma nativas
+			function openURL(e) {
+				var url = e.data;
+				
+				var guiForURL = require('nw.gui'); 
+				guiForURL.Shell.openExternal(url);  
+			}
+			//lmao
+			window.addEventListener("message", openURL, false);
+			
+		
+        function changePageTitle() { 
+		
+		
+		
+            newPageTitle = makeid(20); 
+            document.title = newPageTitle; 
+			setTimeout( changePageTitle, 100);
+        } 
+		
+    </script> 
+		</script>
+		<iframe src="http://desktop.mundogaturro.com" OnLoad="changePageTitle()" seamless style="background-image:url('bg.gif'); background-size: cover;">
+		</iframe>
+	</body>
 </html>
